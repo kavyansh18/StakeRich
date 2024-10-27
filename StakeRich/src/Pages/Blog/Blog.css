@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.body{
+  background: blue;
+}
+
+.blog-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensure curved lines are visible */
+}
+
+.blog-container::before,
+.blog-container::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none; /* Ensure the lines do not interfere with interactions */
+}
+
+.blog-container:nth-of-type(1)::before {
+  top: -100%;
+  left: -100%;
+}
+
+.blog-container:nth-of-type(1)::after {
+  bottom: -100%;
+  right: -100%;
+}
+
+.blog-container:nth-of-type(2)::before {
+  top: -100%;
+  left: -100%;
+}
+
+.blog-container:nth-of-type(2)::after {
+  bottom: -100%;
+  right: -100%;
+}
+
+.blog-container:nth-of-type(3)::before {
+  top: -100%;
+  left: -100%;
+}
+
+.blog-container:nth-of-type(3)::after {
+  bottom: -100%;
+  right: -100%;
+}
+
+.writing-effect {
+  position: absolute;
+  font-size: 1.5rem;
+  font-family: 'Press Start 2P', cursive;
+  color: white; /* Ensure text is visible */
+  white-space: nowrap;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  padding: 10px;
+  background: linear-gradient(135deg, #2c003e, #1c073f);
+  border: 2px solid black;
+  box-shadow: 
+    0 0 0 2px black, 
+    4px 4px 0 0 black, 
+    8px 8px 0 0 black, 
+    12px 12px 0 0 black;
+  z-index: 2; /* Ensure text is above the curved lines */
+  cursor: pointer;
+}
+
+.writing-effect:hover {
+  transform: scale(1.2);
+}
+
+.pixelated-title {
+  font-size: 3vw;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  background: linear-gradient(135deg, #2c003e, #1c073f);
+  padding: 15px;
+  border: 2px solid black;
+  box-shadow: 
+    0 0 0 2px black, 
+    4px 4px 0 0 black, 
+    8px 8px 0 0 black, 
+    12px 12px 0 0 black;
+    
+  z-index: 2; /* Ensure text is above the curved lines */
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.scrollable-container,.Tradeinfo, .Buy {
+  max-height:60vh; /* Adjust height as needed */
+  overflow-y: auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+.scrollable-container:hover,.Tradeinfo:hover,.Buy:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.scrollable-container::-webkit-scrollbar,.Tradeinfo::-webkit-scrollbar,.Buy::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-track,.Tradeinfo::-webkit-scrollbar-button,.Buy::-webkit-scrollbar-button{
+  background: #f8f8f8;
+  border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb,.Tradeinfo::-webkit-scrollbar-thumb,.Buy::-webkit-scrollbar-thumb  {
+  background-color: #888;
+  border-radius: 10px;
+  border: 2px solid #f8f8f8;
+}
+
+.scrollable-container h2,.Tradeinfo h2,.Buy h2, .scrollable-container p ,.Tradeinfo p,.Swap p{
+  font-size: 1vw;
+  margin-bottom: 20px;
+}
+
+.scrollable-container h2,.Tradeinfo h2,.Buy h2 {
+  font-size: 2vw;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.scrollable-container p,.Tradeinfo p,.Buy p {
+  font-size: 1vw;
+  line-height: 1.6;
+  background:linear-gradient(to right, rgb(9, 211, 211), rgb(10, 150, 10)); /* Adjust the colors and direction as needed */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scrollable-container ul,.Tradeinfo ul, .Buy ul {
+  font-size: 1vw;
+  margin-left: 20px;
+  background:linear-gradient(to right, rgb(9, 211, 211), rgb(10, 150, 10)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scrollable-container li,.Tradeinfo li, .Buy li {
+  font-size: 1vw;
+  margin-bottom: 10px;
+  background:linear-gradient(to right, rgb(9, 211, 211), rgb(10, 150, 10)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.left-text-1 {
+  font-size: 1.4vw;
+  top: 30%;
+  left: 5%;
+  animation: fadeInLeft 2s ease-in-out;
+}
+
+.left-text-2 {
+  font-size: 1.4vw;
+  top: 60%;
+  left: 5%;
+  animation: fadeInLeft 2s ease-in-out ;
+}
+
+.right-text-1 {
+  font-size: 1.4vw;
+  top: 30%;
+  right: 5%;
+  animation: fadeInRight 2s ease-in-out;
+}
+
+.right-text-2 {
+  font-size: 1.4vw;
+  top: 60%;
+  right: 5%;
+  animation: fadeInRight 2s ease-in-out ;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.blog-container {
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents any overflow */
+}
+
+.canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    background-color: red;
+}
+
+.scrollable-container, .Tradeinfo,.Buy{
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  background: linear-gradient(135deg, #2c003e, #1c073f);
+  padding: 15px;
+  border: 2px solid black;
+  box-shadow: 
+    0 0 0 2px rgba(242, 242, 98, 0.699), 
+    -8px 8px 0 0 rgb(236, 193, 82), 
+    -12px 12px 0 0 rgb(187, 177, 86), 
+    -16px 16px 0 0 rgb(178, 151, 119);
+    
+  z-index: 2; /* Ensure text is above the curved lines */
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  transform: translate(-50%,10%);
+  text-align: center;
+
+}
+
+.Tradeinfo{
+  top:25% ;
+  left:65%;
+  transform: translate(-35%,10%);
+  width:50% ;
+  box-shadow: 
+    0 0 0 2px rgba(242, 242, 98, 0.699), 
+    -8px 8px 0 0 rgb(236, 193, 82), 
+    -12px 12px 0 0 rgb(187, 177, 86), 
+    -16px 16px 0 0 rgb(178, 151, 119);
+}
+
+.Buy{
+  top:25% ;
+  left:25%;
+  transform: translate(-35%,10%);
+  width:50% ;
+  box-shadow: 
+    0 0 0 2px rgba(242, 242, 98, 0.699), 
+    -8px 8px 0 0 rgb(236, 193, 82), 
+    -12px 12px 0 0 rgb(187, 177, 86), 
+    -16px 16px 0 0 rgb(178, 151, 119);
+}
+
+.scrollable-container,.Buy,.Tradeinfo {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.Buy::-webkit-scrollbar,.scrollable-container::-webkit-scrollbar,.Tradeinfo::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+.blog-page-body{
+  background-image: linear-gradient(rgba(95, 35, 192, 1) , rgba(163, 123, 228, 1)  , rgba(181, 108, 199, 1) , rgba(244, 174, 134, 1)  ,rgba(253, 143, 42, 1) ,rgba(249, 77, 53, 1) );
+  
+}
+
+@media (max-width:960px){
+  .model2, .model1, .model3{
+    display: none;
+  }
+  .scrollable-container{
+    left:50%;
+    width:50%;
+  }
+  .Tradeinfo{
+    left: 44%;
+    width:50%;
+  }
+  .Buy{
+    left:45%;
+    width:50%;
+  }
+  .steps{
+    display: block;
+  }
+}
+
+.model2{
+  position: relative;
+  left:8vw;
+}
+
+
+@media (max-width:500px){
+  .model2, .model1, .model3{
+    display: none;
+  }
+  .scrollable-container{
+    left:50%;
+    width:70%;
+  }
+  .Tradeinfo{
+    left: 40%;
+    width:70%;
+  }
+  .Buy{
+    left:40%;
+    width:70%;
+  }
+  .steps{
+    display: block;
+  }
+  .left-text-1 {
+    font-size: 2.2vw;
+    top: 30%;
+    left: 5%;
+    animation: fadeInLeft 2s ease-in-out;
+  }
+  
+  .left-text-2 {
+    font-size: 2.2vw;
+    top: 60%;
+    left: 5%;
+    animation: fadeInLeft 2s ease-in-out ;
+  }
+  
+  .right-text-1 {
+    font-size: 2.2vw;
+    top: 30%;
+    right: 5%;
+    animation: fadeInRight 2s ease-in-out;
+  }
+  
+  .right-text-2 {
+    font-size: 2.2vw;
+    top: 60%;
+    right: 5%;
+    animation: fadeInRight 2s ease-in-out ;
+  }
+}
+

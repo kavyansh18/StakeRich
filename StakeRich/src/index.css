@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'GomePixel';
+  src: url('./assets/fonts/GomePixel-ARJd7.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'GomePixel', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+*{
+  cursor: none !important;
+}
+
+.cursor {
+  background-image: url('/src/assets/cursor1.png');
+  z-index: 100000;
+  position:fixed;
+  top:0;
+  left:0;
+  width:25px;
+  height:25px;
+  transform: translate(50vw,50vh);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  pointer-events: none;
+  transition-timing-function: ease-in-out;
+  opacity: 0;
+}
+
+
+/* Additional global styles can go here */

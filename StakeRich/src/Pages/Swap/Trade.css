@@ -1,0 +1,531 @@
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling between sections */
+  overflow: hidden; /* Prevent both vertical and horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling between sections */
+}
+.a-button{
+  position:absolute;
+  top:89%;
+  left: 2%;
+  height:2px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+/* General Section Styling */
+section {
+  width: 100vw;
+  min-height: 100vh; /* Ensure each section takes up at least the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.trade-container {
+  background-color: rgb(100, 52, 25);
+  position: relative;
+  width: 98.66vw;
+  min-height: 100vh; /* Ensure it covers the full height of the viewport */
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* Allow vertical scrolling */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push the Bitcoin swap section to the bottom */
+}
+
+.trade-container::after {
+  content: '';
+  position: fixed;
+  bottom: -1px;
+  left: 0;
+  width: 98.66vw;
+  height: 100px; /* Adjust height as needed */
+  background-color: white;
+  z-index: 1;
+}
+
+.canvas-container {
+  /* Allow the canvas to take up the remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width:98.66vw;
+  margin-top:10vh;
+  overflow: hidden; /* Ensure this is above the pseudo-element */
+}
+
+.canvas-element{
+  width: 100%;
+  height:100%;
+}
+
+.white-background {
+  display: none; /* Remove the previous white background */
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  margin: auto;
+  width: 10em;
+  height: 10em;
+  border-radius: 100%;
+}
+
+.loader div {
+  height: 100%;
+  width: 100vw;
+  border-radius: 100%;
+  box-sizing: border-box;
+  border-bottom: 0.2em solid grey;
+  border-top: 0.2em solid grey;
+  border-left: 0.2em solid aqua;
+  border-right: 0.2em solid aqua;
+  animation: spin 10s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bitcoin-swap-section {
+  width: 98.66vw;
+  max-width: 6000px;
+  padding: 2rem;
+  background: #e4b877;  /*fallback for old browsers  #e2b97b */
+  /* background: -webkit-linear-gradient(to right, #e4e4d9, #215f00);  Chrome 10-25, Safari 5.1-6
+  background: linear-gradient(to right, #e4e4d9, #215f00); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Ensure the section is above the pseudo-element */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.swap-container,
+.wallet-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: bottom;
+  padding: 1.5rem;
+  padding-bottom: 0;
+  margin-left: 2rem;
+  background: linear-gradient(135deg, rgb(43, 102, 105), rgb(128, 176, 86), rgb(51, 113, 117));
+  border: 4px solid #333;
+  border-radius: 8px;
+  box-shadow: 10px 10px 0px #555, 20px 20px 0px #777, 30px 30px 0px #999;
+  transform: translateY(-20px);
+  transition: all 0.2s ease;
+  position: relative;
+  width: 40vw; /* Adjust the width as needed */
+  height: 70vh; /* Adjust the height as needed */
+  justify-content: bottom;
+}
+
+.swap-container:hover,
+.wallet-dashboard-container:hover {
+  transform: translateY(-30px);
+  box-shadow: 5px 5px 0px #555, 10px 10px 0px #777, 15px 15px 0px #999;
+}
+
+/* Pixelated Inputs and Button */
+.swap-input,
+.swap-select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  width: 220px;
+  border: 4px solid #333;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  box-shadow: 4px 4px 0px #777;
+  outline: none;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1; /* Ensure the elements stay above shadows */
+}
+
+.swap-input:focus,
+.swap-select:focus {
+  border-color: #f0ad4e;
+  box-shadow: 2px 2px 0px #555;
+}
+
+.swap-button {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  background-color: #f0ad4e;
+  border: 4px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 4px 4px 0px #777;
+  position: relative;
+  z-index: 1; /* Ensure the button stays above shadows */
+}
+
+.swap-button:hover {
+  background-color: #ec971f;
+  box-shadow: 2px 2px 0px #555;
+}
+
+/* Fixing Text Overlap */
+.swap-container p {
+  margin-top: 0;
+  z-index: 1; /* Ensure the paragraph text is on top */
+  position: relative; /* Ensure the text stays above the shadows */
+}
+
+h2, p {
+  margin: 0; /* Remove margin to prevent any stacking issues */
+  padding: 0.5rem 0; /* Add padding for spacing */
+  z-index: 1; /* Ensure the text stays on top */
+  position: relative; /* Ensure the element is above shadows */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .swap-input,
+  .swap-select {
+    width: 100vw;
+  }
+
+  .bitcoin-swap-section {
+    padding: 1rem;
+  }
+
+  .bitcoin-swap-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .bitcoin-swap-section p {
+    font-size: 1.25rem;
+  }
+}
+
+.flex-column-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Custom styles for the Wallet Connect button */
+.swap-container .w3m-button {
+  background-color: #4CAF50; /* Change to your desired background color */
+  color: white; /* Change the text color */
+  padding: 10px 20px; /* Add padding */
+  font-size: 16px; /* Increase the font size */
+  border-radius: 8px; /* Make the button rounded */
+  border: none; /* Remove the border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.swap-container .w3m-button:hover {
+  background-color: #45a049; /* Darken the background color on hover */
+}
+
+.trade-page {
+  position: relative;
+}
+
+.text {
+  position: absolute;
+  top: 15%;
+  left:4%; /* Adjust as needed */
+  z-index: 10; /* Ensure it is in front of the model */
+  text-align: center;
+}
+
+.text h1 {
+  font-size: 4vw; /* Adjust as needed */
+  margin: 0;
+  color: rgb(232, 140, 60);
+  text-shadow:
+    1px 1px 0 #eec745,  
+    -1px -1px 0 #39045a,  
+    1px -1px 0 #5d0d0d,  
+    -1px 1px 0 #000; 
+  animation: fade 0.8s 0.6s forwards; 
+  opacity: 0; 
+}
+
+@keyframes fade{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+.text p {
+  top:0.9vw;
+  font-size: 2vw; /* Adjust as needed */
+}
+
+.text h1 .swap {
+  color: #e7df65;
+  font-size: 6vw;
+  animation: entry 0.5s ease-in-out forwards, float 2s infinite ease-in-out 0.5s;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    1px 1px 0 #eec745,  
+    -1px -1px 0 #39045a,  
+    1px -1px 0 #5d0d0d,  
+    -1px 1px 0 #ffffff; 
+}
+
+@keyframes float{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-10px);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes entry{
+  0%{
+    left:-100vw;
+    opacity: 0;
+  }
+  100%{
+    left:0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Define the slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animations to the h1 elements */
+.text h1 {
+  margin: 0;
+  opacity: 0; /* Start hidden */
+  animation: fade 1s forwards; /* Fade-in effect */
+}
+
+.text h1:nth-of-type(1) {
+  animation-delay: 0.5s; /* Delay for the first h1 */
+}
+
+.text h1:nth-of-type(2) {
+  animation-delay: 0.5s; /* Delay for the second h1 */
+}
+
+/* Apply the sliding effect to the swap class */
+.text .swap {
+  display: inline-block; /* Required for transform to work */
+  opacity: 0; /* Start hidden */
+  animation: entry 1s forwards; /* Slide-in effect */
+  animation-delay: 0.5s; /* Delay to match with the parent h1 animation */
+}
+
+.text h1:nth-of-type(1) .swap {
+  animation-delay: 0.5s; /* Match delay for the first h1 */
+}
+
+.text h1:nth-of-type(2) .swap {
+  animation-delay: 0.5s; /* Match delay for the second h1 */
+}
+
+.text p {
+  color: #78bab1;
+  opacity: 0;
+  animation: fade 1s forwards;
+  animation-delay: 1.5s; /* Delay for the paragraph */
+}
+
+.swap-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  top:-12vh;
+  height:7vh;
+}
+
+.swap-container .tooltip-text::after {
+  content: '';
+  position: absolute; /* Point arrow down */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.wallet-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Center items horizontally */
+  padding: 20px;
+  color: white;
+  border-radius: 8px;
+  font-family: 'Press Start 2P', cursive;
+  width: 100%;
+  height:100%;
+  max-width: 50rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.wallet-dashboard h3 {
+  margin-bottom: 20px; /* Adjust margin for better spacing */
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 4px 4px 0px #555;
+  align-self: flex-start; /* Align the heading to the top */
+}
+
+.wallet-dashboard p {
+  margin-bottom: 20px; /* Increased margin for better spacing */
+  font-size: 1rem;
+  word-wrap: break-word; /* Ensure long addresses break to fit the container */
+  background: linear-gradient(145deg, #4e4e4e, #3a3a3a);
+  padding: 10px 15px; /* Adjusted padding for better visual spacing */
+  border-radius: 4px;
+  box-shadow: 6px 6px 0px #555;
+  width: 100%; /* Ensure the paragraph takes full width */
+  text-align: center; /* Center the text */
+}
+
+.wallet-dashboard button {
+  padding: 10px 20px; /* Adjusted padding for better fit */
+  font-size: 1rem;
+  background-color: #f0ad4e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%; /* Make the button take full width */
+  text-align: center;
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+  box-shadow: 6px 6px 0px #777;
+  align-self: flex-end; /* Align the button to the bottom */
+}
+
+.wallet-dashboard button:hover {
+  background-color: #ec971f;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #555;
+}
+
+.wallet-dashboard .tooltip-text {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 120%; /* Adjust position of tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.wallet-dashboard:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.wallet-dashboard .tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Point arrow down */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.learn-button {
+  background: linear-gradient(135deg, rgb(224, 161, 102), rgb(233, 211, 123));
+  text-decoration: none;
+  font-size: 3vw; /* Size adjusted to ensure it's consistent */
+  align-items: center;
+  position: absolute; /* Use absolute to control positioning more precisely */
+  top: 70vh;
+  left:6vw;
+  z-index: 4;
+  padding: 20px;
+  color: #5d4b21;
+  border: 2px solid #f2ddae;
+  border-radius: 25px;
+  font-weight: 200;
+  text-shadow:
+    0.2px 0.5px 0 #eec745,  
+    -0.2px -0.2px 0 #39045a,  
+    0.5px -0.2px 0 #5d0d0d,  
+    -0.2px 0.5px 0 #ffffff;
+  animation: float 2s infinite ease-in-out;
+}
+
+
+.learn-button:hover{
+  transform: scale(1);
+  background: linear-gradient(135deg, rgb(179, 123, 72), rgb(233, 211, 123));
+  animation: big 1s ease-in-out,float 2s infinite ease-in-out;
+}
+
+@keyframes big{
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.1);
+  }
+}

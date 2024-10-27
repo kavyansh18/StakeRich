@@ -1,0 +1,59 @@
+/* wallet.css */
+w3m-button {
+  background-color: #787a78; /* Custom background color */
+  color: white; /* Custom text color */
+  padding: 15px 30px; /* Padding */
+  font-size: 18px; /* Font size */
+  border-radius: 12px; /* Rounded corners */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  font-family: 'Arial', sans-serif; /* Font family */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1.5px; /* Spacing between letters */
+  position: relative; /* For positioning the pulse effect */
+  overflow: hidden; /* Hide overflow for pulse effect */
+}
+
+/* Hover Effect */
+w3m-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+/* Pulse Effect */
+w3m-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(76, 175, 80, 0.2); /* Semi-transparent green */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-in-out;
+  z-index: 0;
+}
+
+w3m-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Text Animation on Hover */
+w3m-button:hover span {
+  animation: textFadeIn 0.3s forwards;
+}
+
+@keyframes textFadeIn {
+  0% {
+    letter-spacing: 1.5px;
+    color: white;
+  }
+  100% {
+    letter-spacing: 3px;
+    color: #ffffff;
+  }
+}

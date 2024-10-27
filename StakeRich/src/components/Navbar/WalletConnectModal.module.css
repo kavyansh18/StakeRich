@@ -1,0 +1,229 @@
+/* WalletConnectModal.module.css */
+.modalBackground {
+  position: fixed;
+  top: -25px;
+  left: -25px;
+  width: 100vw;
+  height: 102vh;
+  background: rgba(0, 0, 0, 0.634);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modalBackground.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modalContainer {
+  width: 80%; /* Adjusted for smaller screens */
+  max-width: 768px; /* Max width for larger screens */
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  border: 20px solid;
+  border-image: url('/src/assets/border.jpg');
+  border-image-slice: 16 14 26 13;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.modalContainer.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0px; /* Adjusted to move the button closer to the top */
+  right: 0px; /* Adjusted to move the button closer to the right */
+  width: 30px; /* Increased size for better visibility */
+  height: 30px; /* Increased size for better visibility */
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: #f1d06b;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Removed padding for better alignment */
+}
+
+.closeButton:hover {
+  background-color: #cfcf63;
+  border: 2px solid rgb(185, 79, 47);
+}
+
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: rgba(90, 86, 86, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.leftside {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(112, 107, 106, 0.682);
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.logoButton {
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+.logoButton1 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+.logoButton2 {
+  background: black; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative;/* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton3 {
+  background: #0052ff; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative;/* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton4{
+  background: #3375bb; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative;/* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton5 {
+  background: black; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+.rightside {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.127);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
+
+
+.leftside{
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 50px; 
+  flex: 1;
+  height:100%;
+  background: rgba(112, 107, 106, 0.682);  /* Opaque */
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hello:hover, .howtolink:hover{
+  background-color: #0056b3;
+}
+.howtolink{
+  translate: 0 100%;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.righttext{
+  translate: 0 100%;
+}

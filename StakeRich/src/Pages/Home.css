@@ -1,0 +1,788 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: #ffffff;
+}
+
+.hero-section {
+  background-image: linear-gradient(#331f80, #100732);
+  height: 100vh;
+  display: flex;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+
+}
+
+.model{
+  display:flex;
+  position: relative;
+  top:18vh;
+  left:14vw;
+
+  width:30%;
+  height:35vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.news {
+  position: relative;
+  top: 20vh;
+  left: 7vw;
+}
+
+.news h1 {
+  font-size: 6vw;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.news h1 .trusted {
+  color: #ac9fe4;
+  font-size: 8vw;
+  animation: entry 0.5s ease-in-out forwards, float 2s infinite ease-in-out 0.5s;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    1px 1px 0 #a35adb,  
+    -1px -1px 0 #da95e1,  
+    1px -1px 0 #000,  
+    -1px 1px 0 #000; 
+}
+
+.earn{
+  display: inline-block;
+  animation: bounce 0.4s 1s ease-in-out;
+}
+
+.trade{
+  display: inline-block;
+  animation: bounce 0.4s 1.5s ease-in-out;
+}
+
+.swap{
+  display: inline-block;
+  animation: bounce 0.4s 2s ease-in-out;
+}
+
+.buy{
+  display: inline-block;
+  animation: bounce 0.4s 2.5s ease-in-out;
+}
+
+.all{
+  animation: shine 2s ease-in-out 3s forwards;
+}
+
+@keyframes shine{
+  0%,100%{
+    
+  }
+  50%{
+    color:rgb(250, 239, 137);
+  }
+}
+
+@keyframes bounce{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-10px);
+    transform: scale(1.15);
+    color: rgb(231, 195, 75);
+    text-shadow:
+    1px 1px 0 #e6e098,  
+    -1px -1px 0 #c7c48e,  
+    1px -1px 0 #b7b749,  
+    -1px 1px 0 #d3c959; 
+  }
+}
+
+@keyframes float{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-10px);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes entry{
+  0%{
+    left:-100vw;
+    opacity: 0;
+  }
+  100%{
+    left:0;
+    opacity: 1;
+  }
+}
+
+.news p {
+  font-size: 2.5vw;
+  color: #fff;
+  left: 1vw;
+}
+
+.ecosystem-section {
+  background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+
+
+.ecosystem-section h2 {
+  font-size: 6vw;
+  margin-bottom: 2rem;
+  animation: slide ease-in-out forwards;
+  animation-timeline: view();
+  animation-range:entry 0 cover 60%;
+}
+
+@keyframes slide{
+  from{
+    opacity: 0;
+    transform: scale(0.5);
+    transform: translateY(100%);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+    transform: translateY(0);
+  }
+}
+
+.feature1 {
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 9vh 10vw 0 10vw;
+  animation: slide ease-in-out forwards;
+  animation-timeline: view();
+  animation-range:entry 0 cover 50%;
+}
+
+.feature1 a{
+  text-decoration: none;
+  color:black;
+}
+
+
+.feature1 a {
+  display: block; /* Make the link block level to include the padding */
+  color: #333; /* Default text color */
+  text-decoration: none; /* Remove default underline */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+
+.feature1 a:hover {
+  color: rgb(66, 129, 254); /* Text color changes to blue */
+  transform: scale(1.1); /* Slightly increase size */
+}
+
+/* Optional: Add a transition effect to the text color and scaling */
+.feature1 a h3, 
+.feature1 a p {
+  margin: 0;
+  padding: 0;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+
+.feature1 img {
+  width: 50vw;
+  height: auto;
+  margin-bottom: 1rem;
+  animation: slide ease-in-out forwards;
+  animation-timeline: view();
+  animation-range:entry 0 cover 50%;
+}
+
+.feature1 h3 {
+  font-size: 4.5vw;
+  margin-top: 5rem;
+  animation: slide ease-in-out forwards;
+  animation-timeline: view();
+  animation-range:entry 0 cover 50%;
+}
+
+.feature1 p {
+  font-size: 1.2rem;
+  animation: slide ease-in-out forwards;
+  animation-timeline: view();
+  animation-range:entry 0 cover 50%;
+}
+.f3img{
+  margin-top:-5vw;
+}
+.f2img{
+  margin-top: -11vw;
+}
+
+.join-page {
+  margin-top: 200px;
+  height: 80vh;
+  background-image: linear-gradient(#331f80, #0c0524);
+  color: white;
+  text-align: center;
+}
+
+.join-page h1 {
+  position: relative;
+  top: 120px;
+  font-size: 4rem;
+  animation: slide ease-in-out forwards;
+  animation-timeline: view();
+  animation-range:entry 0 cover 40%;
+}
+
+.favourite {
+  color: #ac9fe4;
+}
+
+.join-page p {
+  position: relative;
+  top: 150px;
+  font-size: 1.4rem;
+}
+
+.trade-button {
+  position: relative;
+  top: 200px;
+  width: 320px;
+  height: 78px;
+  background-color: #ac9fe4;
+  border: 2px solid rgb(129, 48, 222);
+  color: black;
+  font-size: x-large;
+  border-radius: 20px;
+  animation: pulse 2s ease-out infinite forwards;
+  font-family: 'GomePixel', sans-serif;
+}
+
+@keyframes pulse{
+  0%,40%,70%,100%{
+    transform: scale(1);
+  }
+  35%,65%{
+    transform: scale(1.1);
+  }
+}
+
+.trade-button:hover {
+  background-color: #7869bb;
+  transform: scale(1.2);
+  border: 3px solid rgb(233, 215, 142);
+  color:rgb(233, 215, 142);
+}
+
+.model-monitor-wrapper {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  gap: 2rem;
+  padding: 0 2rem;
+  position: relative;
+  margin-bottom: -5rem;
+  
+
+}
+
+.table {
+  width: 790px;
+  height: 200px;
+  background-color: #d4e5ff;
+
+  position: relative;
+}
+
+.monitor-wrapper {
+  background: #050321;
+  width: 100%;
+  max-width: 50%;
+  height: 130px;
+  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.30);
+  margin-top: 10rem;
+  margin-right: 4em;
+  position: relative; /* Ensure this is relative to contain the dragon-canvas-container */
+ 
+ 
+}
+
+.dragon-canvas-container {
+  width: 50%; /* Take half the width on larger screens */
+  height: auto;
+  min-width: 300px; /* Ensure a minimum width */
+  flex: 1 1 45%; /* Flex properties to allow resizing */
+  margin-bottom: 1rem;
+  z-index: 4;
+}
+
+
+.monitor {
+  width: 800px;
+  height: 100px;
+  background-color: #344151;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: inset 0px 5px 10px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.monitor p {
+  font-size: 4vw;
+  position: relative;
+  display: inline-block;
+  animation: move 20s infinite linear;
+  color: #EBB55F;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.hometruck-canvas-container {
+ 
+  width: 900px;
+  height: 600px;
+  /* margin-bottom: 40rem; */
+}
+
+@media (max-width:1025px) {
+  .hero-section {
+    height: 100vh;
+  }
+
+  .news h1 {
+    font-size: 5vw;
+  }
+
+  .news h1 .trusted {
+    font-size: 7vw;
+  }
+
+  .news p {
+    font-size: 2vw;
+  }
+  .model{
+    width:2rem;
+  }
+}
+
+@media (max-width:735px) {
+  .hero-section {
+    height: 100vh;
+  }
+
+  .news h1 {
+    font-size: 4.5vw;
+  }
+
+  .news h1 .trusted {
+    font-size: 6.5vw;
+  }
+
+  .news p {
+    font-size: 1.8vw;
+  }
+}
+
+@media (max-width:580px) {
+  .hero-section {
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+  }
+
+  .news {
+    left: 5vw;
+  }
+
+  .news h1 {
+    font-size: 4vw;
+  }
+
+  .news h1 .trusted {
+    font-size: 6vw;
+  }
+
+  .news p {
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width:500px) {
+  .hero-section {
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+    justify-content: center;
+
+  }
+
+  .news {
+    left: 5%;
+    text-align: center;
+  }
+
+  .news h1 {
+    font-size: 3.5vw;
+  }
+
+  .news h1 .trusted {
+    font-size: 5.5vw;
+  }
+
+  .news p {
+    font-size: 1.4vw;
+  }
+}
+
+@media (max-width:730px) {
+  .ecosystem-section h2 {
+    font-size: 6.3vw;
+  }
+}
+
+.f1img img,
+.f3img img {
+  width: 20vw; 
+  height: auto;
+}
+
+.f2img img {
+  margin-top:5vw;
+  margin-right:5vw;
+  width: 14vw; 
+  height: auto;
+}
+
+
+
+
+@media (max-width:1218px){
+  .news {
+    position: relative;
+    top: 20vh;
+    left: 6vw;
+  }
+  
+  .news h1 {
+    font-size: 5vw;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .news h1 .trusted {
+    color: #ac9fe4;
+    font-size: 8vw;
+    animation: entry 0.5s ease-in-out forwards, float 2s infinite ease-in-out 0.5s;
+    position: relative;
+    display: inline-block;
+    text-shadow:
+      1px 1px 0 #a35adb,  
+      -1px -1px 0 #da95e1,  
+      1px -1px 0 #000,  
+      -1px 1px 0 #000; 
+  }
+  .model{
+    display:flex;
+  position: relative;
+  top:20vh;
+  left:15vw;
+  
+  width:20rem;
+  height:20rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  }
+}
+
+@media (max-width:1025px){
+  .model{
+  display:flex;
+  position: relative;
+  top:20vh;
+  left:15vw;
+
+  width:20rem;
+  height:20rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  }
+  .hero-section {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+}
+
+@media(max-width:1050px){
+  .join-page h1 {
+    font-size: 3rem;
+  }
+  .join-page p{
+    font-size: 1rem;
+  }
+  .trade-button{
+    top: 180px;
+    width: 270px;
+    height: 60px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:830px){
+  .hero-section{
+    display: block;
+    justify-content: center;
+    left:0;
+
+  }
+  .model{
+    top:25vh;
+    left:25%;
+    width:50%;
+    height:13rem;
+
+  }
+  .news{
+    text-align: center;
+    left:0;
+  }
+  .news h1 {
+    font-size: 9vw;
+  }
+  
+  .news h1 .trusted {
+    font-size: 11vw;
+  }
+
+  .join-page p{
+    margin:20px;
+  }
+
+  .feature1{
+    flex-direction: column;
+  }
+  .join-page h1{
+    font-size: 3rem;
+  }
+  .feature1 .f2img {
+    order: 1; /* Ensure the image comes before the text for the second feature */
+  }
+
+  .feature1 .f2info {
+    order: 2; /* Ensure the text comes after the image for the second feature */
+  }
+  .f2img img {
+    margin-top:0;
+    margin-right:0;
+    width: 14vw; 
+    height: auto;
+  }
+  .f3info{
+    position: relative;
+    top:18vh;
+  }
+  .feature1 p {
+    font-size: 1rem;
+  }
+  
+}
+
+
+@media (max-width:670px) {
+  .ecosystem-section h2 {
+    font-size: 6vw;
+  }
+
+
+  .f2img img {
+    margin-top:-5vw;
+    margin-right:0;
+    width: 14vw; 
+    height: auto;
+  }
+  .f3info{
+    position: relative;
+    top:17vh;
+  }
+  .feature1 p {
+    font-size: 1rem;
+  }
+
+.ecosystem-section h3 {
+  font-size: 6vw;
+}
+
+
+}
+
+
+@media (max-width:430px) {
+  .hero-section {
+    clip-path: polygon(0 0, 100% 0, 100% 83%, 0% 100%);
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .news {
+    text-align: center;
+  }
+
+  .news h1 {
+    font-size: 12vw;
+  }
+
+  .news h1 .trusted {
+    font-size: 14vw;
+  }
+
+  .news p {
+    font-size: 4vw;
+  }
+  .model{
+    left:25%;
+    width:50%;
+    height:50vw;
+  }
+  .join-page h1{
+    font-size: 2rem;
+  }
+  .trade-button{
+    width: 40%;
+    padding: 0;
+  }
+  .join-page h2{
+    font-size: 1rem;
+  }
+  .ecosystem-section h2 {
+    font-size: 8vw;
+  }
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+
+
+.ecosystem-section.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+
+
+.trade-button.dark-mode {
+  background-color: #333333;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.trade-button.dark-mode:hover {
+  background-color: #555555;
+  color: #ffffff;
+}
+
+.monitor-wrapper.dark-mode {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.monitor.dark-mode p {
+  color: #ffffff;
+}
+
+.model-monitor-wrapper.dark-mode {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+/* Add more dark-mode specific styles as needed */
+
+/* Example: Hero Section */
+
+
+/* Example: Ecosystem Section */
+.ecosystem-section.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.table-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+/* Continue adding other elements that need to change in dark mode */
+@media (max-width: 1950px) {
+  .table-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .dragon-canvas-container,
+  .model-monitor-wrapper {
+    width: 100%; /* Take full width when in column layout */
+  }
+
+  .hometruck-canvas-container,
+  .monitor-wrapper {
+    width: 100%; /* Ensure full width */
+  }
+}
+
+@media (max-width: 1024px) {
+  .dragon-canvas-container,
+  .model-monitor-wrapper {
+    width: 100%; /* Take full width */
+  }
+
+  .hometruck-canvas-container,
+  .monitor-wrapper {
+    width: 100%; /* Ensure full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .dragon-canvas-container,
+  .model-monitor-wrapper {
+    min-width: 100%; /* Ensure full width */
+  }
+
+  .hometruck-canvas-container,
+  .monitor-wrapper {
+    min-width: 100%; /* Ensure full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .dragon-canvas-container,
+  .model-monitor-wrapper {
+    width: 100%; /* Adjust for smaller screens */
+  }
+
+  .monitor-wrapper,
+  .hometruck-canvas-container {
+    width: 100%; /* Ensure full width */
+  }
+}

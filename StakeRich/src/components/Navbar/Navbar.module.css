@@ -1,0 +1,528 @@
+/* CSS Styles */
+
+@font-face {
+    font-family: 'GomePixel';
+    src: url('src/assets/fonts/GomePixel-ARJd7.otf') format('opentype');
+}
+
+body {
+    margin: 0;
+    font-family: 'GomePixel', sans-serif;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+
+.navbar.dark-mode {
+    background-color: #000000; /* Dark mode background */
+    color: #ffffff; /* Dark mode text */
+}
+
+
+body.dark-mode .navbar {
+    background-color: #333;
+}
+
+body.dark-mode .logo {
+    color: #fff;
+}
+
+.navbar {
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 80px;
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    right: 2%;
+    z-index: 1000; 
+    background-color: rgba(219, 197, 92, 0.685);/* Ensure it stays on top of other elements */
+}
+
+.navbar.home{
+    background-color: #9f93d5b3;
+}
+
+.navbar.buy{
+    background-color: #6897efac;
+}
+
+.narbar.trade{
+    background-color: rgba(219, 197, 92, 0.685);
+}
+
+.navbar.blog{
+    background-color: #4a26616b;
+}
+
+body.dark-mode .navbar {
+    background-color: #333;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    color: #000;
+    display: flex;
+}
+
+body.dark-mode .logo {
+    color: #fff;
+}
+
+.logoLink {
+    text-decoration: none;
+}
+
+.char {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.char:hover {
+    transform: rotate(15deg);
+}
+
+.navLinks {
+    position:relative;
+    display: flex;
+    gap: 4vw;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    left:15%;
+}
+
+.navLinks a {
+    display: flex;
+    text-decoration: none;
+    font-size: 18px;
+    align-items: center;
+    gap:  1vw; 
+    position: relative;
+    color: transparent; /* Hide the original text */
+    animation: showText 0s steps(1) 2s forwards;
+    right:16%;
+}
+
+body.dark-mode .navLinks a::after {
+    color: #fff;
+}
+
+.navLinks a::after {
+    content: attr(data-text);
+    position: absolute;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid;
+    width: 0;
+    margin-left: 26px;
+    animation: typing 2s steps(15), blink .75s step-end infinite, showBorder 0s steps(1) 2s forwards;
+    color: black; /* Set the color for the pseudo-element text */
+    transition: transform 5s ease-in-out;
+}
+
+.navLinks a:hover {
+    transform: scale(1.2);
+}
+
+.connectWallet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #dd86a2;
+    color: #fff;
+    border-radius: 5px;
+    border:2px solid #ffffff
+}
+
+.connectWallet:hover {
+    background-color: #cf5f77;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80%;
+    }
+}
+
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}
+
+@keyframes showBorder {
+    to {
+        border-color: transparent;
+    }
+}
+
+@keyframes showText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        color: rgb(0, 0, 0); /* Color for the original text after typing animation */
+    }
+}
+
+.menuIcon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    color: black; /* Set color of the menu icon to black */
+}
+
+
+
+
+.eyesContainer {
+    position: absolute;
+    top: 50%;
+    right: 20px; /* Adjusted to position away from edge */
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    gap: 15px; /* Spacing between eyes */
+}
+
+.eye {
+    width: 40px; /* Size of the eye */
+    height: 40px;
+    background: white;
+    border: 3px solid #333; /* Darker border for better contrast */
+    border-radius: 30%;
+    position: relative;
+    display: inline-block;
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #ddd 10px, #ddd 20px);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: transform 0.2s ease;
+}
+
+body.dark-mode .eye {
+    background: #444;
+    border-color: #fff;
+}
+
+.eye:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ddd 5px, #ddd 10px);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+}
+
+.pupil {
+    width: 16px; /* Size of the pupil */
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+    background: repeating-linear-gradient(45deg, #000, #000 5px, #333 5px, #333 10px);
+}
+
+body.dark-mode .pupil {
+    background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ddd 5px, #ddd 10px);
+}
+
+.pupil:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, #333 50%, transparent 50%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+}
+
+
+/* Wrapper for toggle button and eyes to keep them together */
+.toggleEyesContainer {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    gap: 15px; /* Spacing between the toggle button and eyes */
+    align-items: center;
+}
+
+/* 3D Animated Toggle Button Styles */
+.toggleButton {
+    position: relative;
+    width: 60px; /* Slightly larger for a more substantial switch */
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    box-shadow: inset 0 -4px 0 #aaa, 0 4px 8px rgba(0, 0, 0, 0.3); /* 3D effect with inset shadow */
+    perspective: 800px; /* Enables 3D perspective for the button */
+}
+
+body.dark-mode .toggleButton {
+    background-color: #666;
+}
+
+.toggleButton::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 2px 0 #ddd;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(-50%) rotateX(0deg); /* Initial position for 3D rotation */
+    transform-origin: center; /* Rotation center for 3D effect */
+}
+
+body.dark-mode .toggleButton::before {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 2px 0 #444;
+}
+
+.toggleButton.active {
+    background-color: #4CAF50;
+    box-shadow: inset 0 -4px 0 #2e7d32, 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .toggleButton.active {
+    background-color: #2E7D32;
+    box-shadow: inset 0 -4px 0 #1b5e20, 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.toggleButton.active::before {
+    transform: translate(30px, -50%) rotateX(180deg); /* Flips the knob to the right with a 3D effect */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 -2px 0 #ddd; /* Light top inset for 3D look */
+}
+
+body.dark-mode .toggleButton.active::before {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 -2px 0 #333;
+}
+
+/* Icon styles inside the toggle for better visuals */
+.toggleButton .icon {
+    position: absolute;
+    font-size: 16px;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.3s ease;
+    transform-origin: center center;
+    transform: rotateY(0deg) translateZ(20px); /* Initial position for 3D rotation */
+}
+
+.toggleButton .icon.sun {
+    left: 8px;
+    opacity: 1;
+}
+
+.toggleButton .icon.moon {
+    right: 8px;
+    opacity: 0;
+    transform: rotateY(-180deg) translateZ(20px); /* Moon starts flipped and hidden */
+}
+
+body.dark-mode .toggleButton .icon.sun {
+    opacity: 0;
+    transform: rotateY(180deg) translateZ(20px); /* Sun flips out when in dark mode */
+}
+
+body.dark-mode .toggleButton .icon.moon {
+    opacity: 1;
+    transform: rotateY(0deg) translateZ(20px); /* Moon flips in when in dark mode */
+}
+
+body.dark-mode .navbar {
+    background-color: #333;
+  }
+  
+  body.dark-mode .logo {
+    color: #fff;
+  }
+  
+  body.dark-mode .navLinks a::after {
+    color: #fff;
+  }
+  
+  body.dark-mode .eye {
+    background: #444;
+    border-color: #fff;
+  }
+  
+  body.dark-mode .pupil {
+    background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ddd 5px, #ddd 10px);
+  }
+
+
+@media (max-width:1450px){
+    .navLinks {
+      left:8%;
+    }
+
+  
+}  
+
+@media (max-width:1270px){
+    .navLinks {
+      left:7%;
+    }
+
+  
+}  
+@media (max-width:1140px){
+    .navLinks {
+      left:6%;
+    }
+
+  
+} 
+
+@media (max-width:1080px){
+    .navLinks {
+      left:5%;
+    }
+
+  
+} 
+
+
+ @media (max-width: 830px) {
+    .navLinks {
+        backdrop-filter: blur(4px);
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        background-color: #9f93d5e4;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+        top: 15vh; 
+        border-radius: 10px;
+        
+    }
+
+    .navLinks.showMenu {
+        backdrop-filter: blur(4px);
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        animation-name: Entry;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in-out;
+        
+    } 
+
+    @keyframes Entry {
+        0% {
+            opacity: 0;
+            transform: translateY(-50%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .menuIcon {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height:20px;
+        z-index: 4;
+    }
+
+    .navLinks a {
+        padding: 10px 20px;
+        color: black; 
+        justify-content: center;
+        width:80%;
+        left:0
+    }
+
+    .connectWallet {
+        width: 50vw;
+        padding: 10px 20px;
+        border-bottom: none;
+        text-align: center; 
+    }
+
+    .navLinks a::after, .navLinks.noTyping a::after {
+        border: none;
+    }
+
+    .noTyping a {
+        animation: none;
+        color: black; 
+    }
+
+    .noTyping a::after {
+        content: none;
+    }
+
+    .navLinks a {
+        cursor: default; 
+    }
+
+    .eye{
+        display: none;
+    }
+    .toggleButton{
+        right:90%;
+    }
+}
+
+@media (max-width:375px){
+    .toggleButton{
+        right:50%;
+    }
+}
+
+.navbar.dark-mode {
+    background-color: #000000; /* Dark mode background */
+    color: #ffffff; /* Dark mode text */
+  }
+  
