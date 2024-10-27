@@ -5,11 +5,11 @@ html, body {
 }
 
 body {
-  background: #ffffff;
+  background: #D1E9F6;
 }
 
 .hero-section {
-  background-image: linear-gradient(#331f80, #100732);
+  background-image: linear-gradient(to bottom, #09203f 30%, #537895 100%);
   height: 100vh;
   display: flex;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
@@ -31,12 +31,12 @@ body {
 
 .news {
   position: relative;
-  top: 20vh;
+  top: 24vh;
   left: 7vw;
 }
 
 .news h1 {
-  font-size: 6vw;
+  font-size: 5.9vw;
   margin-bottom: 1rem;
   color: white;
 }
@@ -125,13 +125,13 @@ body {
 }
 
 .news p {
-  font-size: 2.5vw;
+  font-size: 2.3vw;
   color: #fff;
   left: 1vw;
 }
 
 .ecosystem-section {
-  background-color: #fff;
+  background-color: #D1E9F6;
   padding: 4rem 2rem;
   text-align: center;
   color: rgb(0, 0, 0);
@@ -232,7 +232,7 @@ body {
 .join-page {
   margin-top: 200px;
   height: 80vh;
-  background-image: linear-gradient(#331f80, #0c0524);
+  background-image: linear-gradient(to bottom, #09203f 30%, #537895 100%);
   color: white;
   text-align: center;
 }

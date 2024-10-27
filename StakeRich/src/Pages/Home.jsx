@@ -15,22 +15,6 @@ const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate(); // Initialize useNavigate hook
 
-
-
-  useEffect(() => {
-    const handleDarkModeToggle = () => {
-      setDarkMode(document.body.classList.contains('dark-mode'));
-    };
-
-    // Add an event listener to detect changes in the dark mode state
-    window.addEventListener('dark-mode-toggle', handleDarkModeToggle);
-
-    // Clean up the event listener
-    return () => {
-      window.removeEventListener('dark-mode-toggle', handleDarkModeToggle);
-    };
-  }, []);
-
   const handleTradeNowClick = () => {
     navigate('/buy');
   };
@@ -51,52 +35,41 @@ const Home = () => {
       
         <div className="news">
           <h1>
-            World’s Most
+            Discover the
             <br />
-            <span className="trusted">TRUSTED</span> DEX
+            <span className="trusted">DEX</span> Built on Trust!
           </h1>
-          <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
+          <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Convert</span> and <span className='buy'>Purchase</span> <span className='all'> with Ease!</span></p>
           
         </div>
-        <div className='model'><Canvas  shadows camera={{ position: [0, 0, 10] }}>
-          <ambientLight intensity={0.4} />
-          <directionalLight 
-            position={[5, 10, 5]} 
-            intensity={5} 
-      
-            shadow-mapSize-width={1024} 
-            shadow-mapSize-height={1024} 
-            shadow-camera-near={0.5} 
-            shadow-camera-far={50} 
-            shadow-camera-left={-10} 
-            shadow-camera-right={10} 
-            shadow-camera-top={10} 
-            shadow-camera-bottom={-10} 
-          />
-          <pointLight position={[0, 10, 10]} intensity={1} />
-          <pointLight position={[0, -10, -10]} intensity={0.5} />
-          <Suspense fallback={null}>
-            <Main 
-              position={[-1, -4.5, 0]} 
-              rotation={[0.2, 1.5, 0]} 
-              scale={[0.5,0.5,0.5]} 
-              castShadow 
-              receiveShadow
-              animation={animations[0]} // Default animation
-              hoverAnimation={animations[1]} // Animation on hover
-              
+        <div className="dragon-canvas-container">
+          <Canvas shadows>
+            <ambientLight intensity={1} />
+            <directionalLight
+              position={[5, 10, 5]}
+              intensity={1.5}
+              castShadow
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              shadow-camera-far={50}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
             />
+
            
-            <mesh 
-              position={[0, -3, 0]} 
-              rotation={[-Math.PI / 2, 0, 0]} 
+            <Dragon
+              scale={[3.3, 3.3, 3.3]}
+              position={[0.5, -2.5, -0.2]}
+              rotation={[0, 0, 0]}
+              castShadow
               receiveShadow
-            >
-              <planeGeometry args={[50, 50]} />
-              <shadowMaterial opacity={0.5} />
-            </mesh>
-          </Suspense>
-        </Canvas></div>
+            />
+
+            <OrbitControls enableZoom={false} />
+          </Canvas>
+        </div>
       </div>
       <div className={`ecosystem-section ${darkMode ? 'dark-mode' : ''}`}>
         <h2>DISCOVER OUR ECOSYSTEM</h2>
@@ -143,36 +116,8 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <div className="table-container">
+      <div className="table-container">
 
-        <div className="dragon-canvas-container">
-          <Canvas shadows>
-            <ambientLight intensity={1} />
-            <directionalLight
-              position={[5, 10, 5]}
-              intensity={1.5}
-              castShadow
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024}
-              shadow-camera-far={50}
-              shadow-camera-left={-10}
-              shadow-camera-right={10}
-              shadow-camera-top={10}
-              shadow-camera-bottom={-10}
-            />
-
-           
-            <Dragon
-              scale={[4, 4, 4]}
-              position={[0, -4, 0]}
-              rotation={[0, 0, 0]}
-              castShadow
-              receiveShadow
-            />
-
-            <OrbitControls enableZoom={false} />
-          </Canvas>
-        </div>
         <div className="model-monitor-wrapper">
           <div className="monitor-wrapper">
             <div className="monitor">
@@ -222,8 +167,8 @@ const Home = () => {
               <OrbitControls enableZoom={false} />
             </Canvas>
           </div>
-        </div> */}
-      {/* </div> */}
+        </div>
+      </div>
 
       <div className={`join-page ${darkMode ? 'dark-mode' : ''}`}>
         <h1>JOIN EVERYONE'S <span className="favourite">FAVOURITE</span> NOW!</h1>

@@ -35,8 +35,8 @@ body.dark-mode .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px 20px;
-    border-radius: 10px;
+    padding: 30px 20px;
+    border-radius:50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 80px;
     position: fixed;
@@ -146,7 +146,22 @@ body.dark-mode .navLinks a::after {
 }
 
 .connectWallet:hover {
-    background-color: #cf5f77;
+    background-color: #BE3144;
+}
+
+.test {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #dd86a2;
+    color: #fff;
+    border-radius: 5px;
+    border:2px solid #ffffff
+}
+
+.test:hover {
+    background-color: #BE3144;
 }
 
 @keyframes typing {

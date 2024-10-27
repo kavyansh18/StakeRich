@@ -7,6 +7,7 @@ import Trade from './Pages/Swap/Trade';
 import Buy from './Pages/Buy/Buy';
 import Logo from './components/Logo';
 import Blog from './Pages/Blog/Blog';
+import Test from './Pages/Test';
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/trade" element={<Trade />} />
         <Route path="/buy" element={<Buy />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
       <Logo />
      

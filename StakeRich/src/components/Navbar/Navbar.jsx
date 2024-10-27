@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useEffect, Suspense } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet, FaBars, FaMoon, FaSun } from 'react-icons/fa';
@@ -165,15 +161,10 @@ const Navbar = () => {
           <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
             <FaWallet /> Connect Wallet
           </Link>
+          <Link className={styles.test} to="/test"><FaMoneyBillWave />Test</Link>
         </div>
         <WalletConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
         <div className={styles.toggleEyesContainer}>
-          {/* Night mode toggle button */}
-          <div className={`${styles.toggleButton} ${darkMode ? styles.active : ''}`} onClick={toggleDarkMode}>
-            <FaSun className={`${styles.icon} ${styles.sun}`} />
-            <FaMoon className={`${styles.icon} ${styles.moon}`} />
-          </div>
-
           {/* Eyes */}
           <div className={styles.eye}>
             <div className={styles.pupil}></div>
