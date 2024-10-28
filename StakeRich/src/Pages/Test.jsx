@@ -17,6 +17,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { ethers } from "ethers";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -49,12 +50,13 @@ function createData(address, amount, roi) {
 const rows = [
   createData("0xkavyansh", 0.123, 18),
   createData("0xtanay", 0.1433, 10),
-  createData("0xpussy", 0.32423, 11),
+  createData("0xrajdeep", 0.32423, 11),
   createData("0xharshil", 0.43, 9),
 ];
 
 const Test = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [walletAddress, setWalletAddress] = useState("");
   const navigate = useNavigate();
   const stakeRef = useRef(null);
   const sendRef = useRef(null);
@@ -84,6 +86,30 @@ const Test = () => {
   const scrollToSendSection = () => {
     if (sendRef.current) {
       sendRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      try {
+        // Request account access
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        // Check if connected to Sepolia testnet
+        const chainId = await window.ethereum.request({ method: "eth_chainId" });
+        if (chainId !== "0xaa36a7") { // Sepolia testnet chain ID
+          await window.ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: "0xaa36a7" }],
+          });
+        }
+        setWalletAddress(accounts[0]);
+      } catch (error) {
+        console.error("Error connecting to MetaMask", error);
+      }
+    } else {
+      alert("Please install MetaMask to connect your wallet.");
     }
   };
 
@@ -150,14 +176,15 @@ const Test = () => {
           Stake
         </div>
         <div className="flex justify-end items-end">
-          <button className="wallet w-40 mx-40">
-            <FaWallet className="mr-2" /> Connect Wallet
+          <button
+            className="wallet w-40 mx-40"
+            onClick={connectWallet}
+          >
+            <FaWallet className="mr-2" />
+            {walletAddress ? `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : "Connect Wallet"}
           </button>
         </div>
         <div className="h-[40rem] flex justify-center items-start mt-16">
-          <div>
-            <img src={bitcoin} alt="" />
-          </div>
           <div className="w-[44rem]">
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 600 }} aria-label="customized table">
@@ -188,10 +215,6 @@ const Test = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-          </div>
-
-          <div>
-            <img src={bitcoin} alt="" />
           </div>
         </div>
       </div>

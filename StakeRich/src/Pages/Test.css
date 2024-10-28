@@ -38,7 +38,9 @@
   background-color: #dd86a2;
   color: #fff;
   border-radius: 5px;
+  font-family:'Orbitron';
   border:2px solid #ffffff
+  
 }
 
 .wallet:hover {
