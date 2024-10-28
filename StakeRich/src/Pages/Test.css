@@ -1,0 +1,28 @@
+.hero-sectionb {
+    background: 
+    linear-gradient(to bottom, #2c2b2b 0%, #3F3F3F 40%, #1C1C1C 150%), 
+    linear-gradient(to top, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.25) 200%);
+  background-blend-mode: multiply;
+    height: 100vh;
+    display: flex;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+
+  .trustedb{
+    scale: 0.9;
+  }
+.trustedb:hover{
+    scale: 1;
+}
+.news h1 .trustedb {
+  color: #ac9fe4;
+  font-size: 7vw;
+  animation: entry 0.5s ease-in-out forwards, float 2s infinite ease-in-out 0.5s;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    1px 1px 0 #a35adb,  
+    -1px -1px 0 #da95e1,  
+    1px -1px 0 #000,  
+    -1px 1px 0 #000; 
+}

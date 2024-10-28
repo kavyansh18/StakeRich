@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'GomePixel';
   src: url('./assets/fonts/GomePixel-ARJd7.otf') format('opentype');
