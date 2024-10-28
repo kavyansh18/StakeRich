@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {Suspense} from 'react'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { AmbientLight } from 'three'
+import Navbar from '../components/Navbar/Navbar';
+import "./Test.css"
 
 const Test = () => {
   return (
-    <div>
-      Test
-    </div>
+    <>
+      <div><Navbar /></div>
+    </> 
   )
 }
 
