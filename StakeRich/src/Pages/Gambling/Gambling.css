@@ -1,73 +1,141 @@
-/* Example using Press Start 2P */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-/* Or for VT323 */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+* {
+  font-family: 'Press Start 2P', sans-serif;
+}
 
 .tracker-container {
-    display: flex;
-    max-width: 1200px;
-   
-    margin-top: 100px;
-    padding: 20px;
-  }
-  
-  .graph-container {
-    flex: 1; /* Takes up 1 part of the available space */
-    padding-right: 20px; /* Space between graph and table */
-  }
-  
-  .transactions-container {
-    flex: 1; /* Takes up 1 part of the available space */
-  }
-  
-  .buttons {
-    margin: 20px 0;
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .scrollable-table {
-    max-height: 400px; /* Limit height for scrollable area */
-    overflow-y: auto; /* Add vertical scroll */
-  }
-  .transaction-table {
-    font-family: 'Press Start 2P', sans-serif;
-
-    font-size: 12px;
-    text-align: left;
-    width: 100%;
-    border-collapse: collapse;
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin-top: 100px;
+  padding: 20px;
 }
+
+.graph-container {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.transactions-container {
+  flex: 1;
+}
+
+.buttons {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn{
+  width: 200px;
+  height: 50px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.scrollable-table {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.transaction-table {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 12px;
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .transaction-table th, .transaction-table td {
   padding: 8px 12px;
   border: 1px solid #ddd;
 }
 
-.transaction-table .buy-row td {
+.transaction-table td {
   background-color: #e0f7fa;
   font-size: 10px;
- 
 }
 
-.transaction-table .sell-row td {
-  background-color: #ffebee;
-  font-size: 10px;
+.buy-row {
+  background-color: #f5f5f5;
+}
+
+.sell-row.profit {
+  background-color: #d4f7dc;
+  color: #1a7f37;
+}
+
+.sell-row.loss {
+  background-color: #f7d4d4;
+  color: #7f1a1a;
+}
+
+
+/* Quantity row to display label and input in one line */
+.quantity-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quantity-label {
+  font-weight: bold;
+  margin-right: 8px;
+  color: black;
+}
+
+.quantity-input {
+  font-size: 16px;
+  padding: 5px;
+  display: flex;
 
 }
-  
+
+/* Align Buy and Sell buttons in one row */
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.buy-button, .sell-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Styling for Buy rows */
+.buy-row {
+  background-color: #f5f5f5; /* Light gray */
+}
+
+/* Styling for Sell rows with Profit and Loss */
+.sell-row.profit {
+  background-color: #d4f7dc; /* Light green */
+  color: #1a7f37;
+}
+
+.sell-row.loss {
+  background-color: #f7d4d4; /* Light red */
+  color: #7f1a1a;
+}
