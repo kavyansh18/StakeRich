@@ -7,6 +7,7 @@ import Main from "../models/main.jsx";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import test from "../assets/6581883.gif";
 import { FaWallet } from "react-icons/fa";
+import bitcoin from '../assets/bitcoinnew.gif'
 
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -25,7 +26,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     fontWeight: 'bold',
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
+    fontSize: 18,
     fontFamily: 'Orbitron, sans-serif',
     fontWeight: 'bold',
   },
@@ -46,7 +47,7 @@ function createData(address, amount, roi) {
 }
 
 const rows = [
-  createData('0xkavyansh', 0.123, 5),
+  createData('0xkavyansh', 0.123, 18),
   createData('0xtanay', 0.1433, 10),
   createData('0xpussy', 0.32423, 11),
   createData('0xharshil', 0.43, 9),
@@ -153,8 +154,9 @@ const Test = () => {
               <FaWallet className="mr-2" /> Connect Wallet
             </button>
           </div>
-        <div className="h-[40rem] mx-40 flex justify-center items-start">
-        <div className="w-[40rem] mt-10">
+        <div className="h-[40rem] flex justify-center items-start mt-16">
+        <div><img src={bitcoin} alt="" /></div>
+        <div className="w-[44rem]">
         <TableContainer component={Paper}>
       <Table sx={{ minWidth: 600 }} aria-label="customized table">
         <TableHead>
@@ -179,6 +181,8 @@ const Test = () => {
       </Table>
     </TableContainer>
         </div>
+
+        <div><img src={bitcoin} alt="" /></div>
       </div>
       </div>
 
