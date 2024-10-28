@@ -7,7 +7,6 @@ import WalletConnectModal from './WalletConnectModal';
 import Sonic from '../../models/Sonic';
 import { Canvas } from '@react-three/fiber';
 
-// Keyframes for the color spread effect
 const colorSpread = keyframes`
   0% {
     clip-path: circle(0% at var(--clip-x) var(--clip-y));
@@ -27,7 +26,6 @@ const fadeOut = keyframes`
   }
 `;
 
-// Overlay that covers the screen and spreads
 const ColorOverlay = styled.div`
   position: fixed;
   top: 0;
