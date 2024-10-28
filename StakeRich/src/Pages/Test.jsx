@@ -10,7 +10,8 @@ import test from "../assets/6581883.gif";
 const Test = () => {
   const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
-  const stakeRef = useRef(null); // Create ref for stake section
+  const stakeRef = useRef(null);
+  const sendRef = useRef(null)
 
   useEffect(() => {
     const handleDarkModeToggle = () => {
@@ -34,16 +35,23 @@ const Test = () => {
     }
   };
 
+  const scrollToSendSection = () => {
+    if (sendRef.current) {
+      sendRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const animations = ["Hey!", "pose"];
 
   return (
     <>
       <Navbar />
       <div className={`hero-sectionb ${darkMode ? 'dark-mode' : ''}`}>
-        <div className="news mr-40 ml-20">
-          <h1 className='flex flex-col'>
+        <div className="news mr-40 ml-40">
+          <h1 className='flex flex-col justify-center items-center'>
             <span className="trustedb" onClick={scrollToStakeSection}>Stake</span> 
-            <span className="trustedb">Send</span> 
+            <span className="trustedc">OR</span> 
+            <span className="trustedb" onClick={scrollToSendSection}>Send</span> 
           </h1>
         </div>
         <div className='model'>
@@ -89,6 +97,11 @@ const Test = () => {
       {/* Stake Section with ref */}
       <div ref={stakeRef}>
         <div className='flex justify-center items-center text-7xl pt-20'>Stake</div>
+        <div className='flex justify-center items-center'><img src={test} alt="Stake Image" /></div>
+      </div>
+
+      <div ref={sendRef}>
+        <div className='flex justify-center items-center text-7xl pt-20'>Send</div>
         <div className='flex justify-center items-center'><img src={test} alt="Stake Image" /></div>
       </div>
     </>
