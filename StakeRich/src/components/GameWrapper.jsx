@@ -17,7 +17,6 @@ const GameWrapper = () => {
 
   return (
     <div id="game-container">
-      {/* Ensure this div exists for the game to render in */}
       <canvas id="gameCanvas"></canvas>
     </div>
   );
