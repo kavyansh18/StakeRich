@@ -1,7 +1,15 @@
+/* Example using Press Start 2P */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Or for VT323 */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
 .tracker-container {
     display: flex;
     max-width: 1200px;
-    margin: 0 auto;
+   
+    margin-top: 100px;
     padding: 20px;
   }
   
@@ -38,28 +46,28 @@
     max-height: 400px; /* Limit height for scrollable area */
     overflow-y: auto; /* Add vertical scroll */
   }
-  
   .transaction-table {
+    font-family: 'Press Start 2P', sans-serif;
+
+    font-size: 12px;
+    text-align: left;
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .transaction-table th,
-  .transaction-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-  
-  .transaction-table th {
-    background-color: #f2f2f2;
-  }
-  
-  .buy-row {
-    background-color: #e0ffe0;
-  }
-  
-  .sell-row {
-    background-color: #ffe0e0;
-  }
+}
+.transaction-table th, .transaction-table td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+.transaction-table .buy-row td {
+  background-color: #e0f7fa;
+  font-size: 10px;
+ 
+}
+
+.transaction-table .sell-row td {
+  background-color: #ffebee;
+  font-size: 10px;
+
+}
   
