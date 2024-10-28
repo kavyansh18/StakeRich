@@ -8,6 +8,7 @@ import Buy from './Pages/Buy/Buy';
 import Logo from './components/Logo';
 import Blog from './Pages/Blog/Blog';
 import Test from './Pages/Test';
+import Gambling from './Pages/Gambling/Gambling'
 
 
 const App = () => {
@@ -20,6 +21,8 @@ const App = () => {
         <Route path="/buy" element={<Buy />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/gambling" element={<Gambling/>} />
+
       </Routes>
       <Logo />
      
