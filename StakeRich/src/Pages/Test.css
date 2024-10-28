@@ -1,0 +1,16 @@
+.hero-section {
+    background: 
+    linear-gradient(to bottom, #2c2b2b 0%, #3F3F3F 40%, #1C1C1C 150%), 
+    linear-gradient(to top, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.25) 200%);
+  background-blend-mode: multiply;
+    height: 100vh;
+    display: flex;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+
+  .trusted{
+    scale: 0.9;
+  }
+.trusted:hover{
+    scale: 1;
+}
