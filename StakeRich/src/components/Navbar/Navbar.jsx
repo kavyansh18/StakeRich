@@ -156,8 +156,8 @@ const Navbar = () => {
           <FaBars />
         </div>
         <div className={`${styles.navLinks} ${isMenuOpen ? styles.showMenu : ''} ${isMenuOpen ? styles.noTyping : ''}`}>
-          <Link to="/trade"><FaExchangeAlt /> Swap</Link>
-          <Link to="/buy"><FaShoppingCart /> Buy</Link>
+          <Link to="/trade" className={styles.connectWallet} onClick={handleOpenModal}><FaExchangeAlt /> Swap</Link>
+          <Link to="/buy"  className={styles.connectWallet} onClick={handleOpenModal}><FaShoppingCart /> Buy</Link>
           <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
             <FaWallet /> Connect Wallet
           </Link>
