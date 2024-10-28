@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
-import { AppKitProvider } from '../src/config/Web3ModalProvider'; // Adjust the path if necessary
-import { CharacterAnimationsProvider } from '../src/models/Contexts/CharcaterAnimation.jsx'; // Ensure the correct path
-import CustomCursor from './components/CustomCursor.jsx'; // Ensure the correct path
+import { AppKitProvider } from '../src/config/Web3ModalProvider'; 
+import { CharacterAnimationsProvider } from '../src/models/Contexts/CharcaterAnimation.jsx'; 
+import CustomCursor from './components/CustomCursor.jsx'; 
 
 import { Buffer } from 'buffer';
 window.Buffer = Buffer;
