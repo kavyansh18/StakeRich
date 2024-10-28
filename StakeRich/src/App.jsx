@@ -22,7 +22,6 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/test" element={<Test />} />
         <Route path="/gambling" element={<Gambling/>} />
-
       </Routes>
       <Logo />
      

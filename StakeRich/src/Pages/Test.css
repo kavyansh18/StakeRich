@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&display=swap');
+
 .hero-sectionb {
     background: 
     linear-gradient(to bottom, #2c2b2b 0%, #3F3F3F 40%, #1C1C1C 150%), 
@@ -25,4 +28,21 @@
     -1px -1px 0 #da95e1,  
     1px -1px 0 #000,  
     -1px 1px 0 #000; 
+}
+
+.wallet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: #dd86a2;
+  color: #fff;
+  border-radius: 5px;
+  font-family:'Orbitron';
+  border:2px solid #ffffff
+  
+}
+
+.wallet:hover {
+  background-color: #BE3144;
 }
