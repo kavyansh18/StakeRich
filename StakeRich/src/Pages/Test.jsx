@@ -1,14 +1,11 @@
 import React,{useEffect} from 'react';
 import { Canvas } from '@react-three/fiber';
 import Navbar from '../components/Navbar/Navbar';
-import './Test.css'; // Assuming the CSS file is in the same directory
-import Hometruck from '../models/Hometruck';
-import Dragon from '../models/Dragon'; // Import the Dragon model
-import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
-import Bitcoin from '../models/Bitcoin.jsx';
+import './Test.css';
 import  { Suspense, useState } from 'react';
 import Main from '../models/main.jsx';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import test from "../assets/6581883.gif"
 
 const Test = () => {
 
@@ -42,12 +39,12 @@ const Test = () => {
     <>
       
       <Navbar />
-      <div className={`hero-section ${darkMode ? 'dark-mode' : ''}`}>
+      <div className={`hero-sectionb ${darkMode ? 'dark-mode' : ''}`}>
       
         <div className="news mr-40 ml-20">
           <h1 className='flex flex-col'>
-            <span className="trusted">Stake</span> 
-            <span className="trusted">Buy/Sell</span> 
+            <span className="trustedb">Stake</span> 
+            <span className="trustedb">Buy/Sell</span> 
           </h1>
         </div>
         <div className='model'><Canvas  shadows camera={{ position: [0, 0, 10] }}>
@@ -89,6 +86,11 @@ const Test = () => {
             </mesh>
           </Suspense>
         </Canvas></div>
+      </div>
+
+      <div>
+        <div className='flex justify-center items-center text-7xl pt-20'>Stake</div>
+        <div className='flex justify-center items-center'><img src={test} alt="" /></div>
       </div>
       
     </>
