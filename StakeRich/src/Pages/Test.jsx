@@ -14,11 +14,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { ethers } from "ethers";
+import { toast } from "react-toastify"; 
 import MyContractABI from "../abis/abis.json";
 
-const contractAddress = "0xBF29CaDC964CeaE5a2dbbCfcc0B8Ec9cA75b90B7";
-
-let provider, signer, contract;
+const contractAddress = "0x7582993721F6EB18418D987221Ca5Aacb3246E6F";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -48,15 +47,17 @@ function createData(address, amount, roi) {
 }
 
 const rows = [
-    createData("0xkavyansh", 0.123, 18),
-    createData("0xtanay", 0.1433, 10),
-    createData("0xrajdeep", 0.32423, 11),
-    createData("0xharshil", 0.43, 9),
+    createData("0x69c0ebF6408F5D50512C4106B97CdEe0A5CD900E", 0.123, 18),
+    createData("0xBF29CaDC964CeaE5a2dbbCfcc0B8Ec9cA75b90B7", 0.1433, 10),
+    createData("0xaDC968DC964CeaE5aDCbbC06B97Cdc9cA75b90B7", 0.32423, 11),
+    createData("0xaDCbbC06C964CeaE5fcdbbCfcc0B8E9cA75dbb23", 0.43, 9),
 ];
 
 const Test = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [walletAddress, setWalletAddress] = useState("");
+    const [signer, setSigner] = useState(null); 
+    const [contract, setContract] = useState(null); // State to hold contract instance
     const navigate = useNavigate();
     const stakeRef = useRef(null);
     const sendRef = useRef(null);
@@ -73,25 +74,32 @@ const Test = () => {
         };
     }, []);
 
-    useEffect(() => {
-        const initializeContract = async () => {
-            if (!window.ethereum) return;
-            provider = new ethers.providers.Web3Provider(window.ethereum);
-            signer = provider.getSigner();
-            contract = new ethers.Contract(contractAddress, MyContractABI, signer);
-        };
-        initializeContract();
-    }, []);
-
-    const connectWallet = async () => {
-        try {
-            if (!window.ethereum) return alert("Please install MetaMask.");
-            const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-            setWalletAddress(accounts[0]);
-        } catch (error) {
-            console.error("Error connecting to wallet:", error);
+const connectWallet = async () => {
+    try {
+        if (typeof window.ethereum === "undefined") {
+            toast.error("Please install MetaMask."); // Show error toast
+            return;
         }
-    };
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        setWalletAddress(accounts[0]);
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        setSigner(signer);
+
+        const contract = new ethers.Contract(contractAddress, MyContractABI, signer);
+        setContract(contract);
+    } catch (error) {
+        if (error.code === 4001) { // User rejected the request
+            toast.warn("You denied account access."); // Show warning toast
+        } else {
+            console.error("Error connecting to wallet:", error);
+            toast.error("Error connecting to wallet."); // Show error toast for other issues
+        }
+    }
+};
+
+  
 
     const getAllTransactions = async () => {
         try {
@@ -114,32 +122,32 @@ const Test = () => {
     };
 
     const sendEther = async () => {
-        const recipientAddress = document.getElementById("recipientAddress").value;
+        const recipientAddress = contractAddress
         const amount = document.getElementById("ethAmount").value;
 
         try {
-            // Check if Ethereum provider is available
-            if (!window.ethereum) {
-                console.error("Please install MetaMask!");
+            if (!signer || !contract) {
+                alert("Please connect your wallet before sending Ether.");
                 return;
             }
 
             if (!recipientAddress || !amount) {
-                console.error("Please enter both recipient address and amount.");
+                alert("Please enter both recipient address and amount.");
                 return;
             }
 
-            // Create the transaction
             const transaction = {
                 to: recipientAddress,
-                value: ethers.utils.parseEther(amount), // Ensure 'amount' is a string
+                value: ethers.utils.parseEther(amount),
             };
 
-            // Send the transaction
             const txResponse = await signer.sendTransaction(transaction);
+            await txResponse.wait(); // Wait for the transaction to be mined
             console.log("Transaction Response:", txResponse);
+            alert("Transaction successful!");
         } catch (error) {
             console.error("Error sending Ether:", error);
+            alert("Transaction failed. Please check the console for details.");
         }
     };
 
@@ -162,7 +170,7 @@ const Test = () => {
     const animations = ["Hey!", "pose"];
 
     return (
-        <>
+        <div className="bg-gradient-to-r from-blue-300 to-blue-600">
             <Navbar />
             <div className={`hero-sectionb ${darkMode ? "dark-mode" : ""}`}>
                 <div className="news mr-40 ml-40">
@@ -244,12 +252,8 @@ const Test = () => {
                                         <StyledTableCell component="th" scope="row">
                                             {row.address}
                                         </StyledTableCell>
-                                        <StyledTableCell align="right">
-                                            {row.amount}
-                                        </StyledTableCell>
-                                        <StyledTableCell align="right">
-                                            {row.roi}
-                                        </StyledTableCell>
+                                        <StyledTableCell align="right">{row.amount}</StyledTableCell>
+                                        <StyledTableCell align="right">{row.roi}</StyledTableCell>
                                     </StyledTableRow>
                                 ))}
                             </TableBody>
@@ -259,28 +263,13 @@ const Test = () => {
             </div>
 
             <div ref={sendRef}>
-                <div className="flex justify-center items-center text-7xl pt-40 pb-20" >
+                <div className="flex justify-center items-center text-5xl pt-20 mb-40" onClick={() => window.location.href = "http://localhost:5174/shop"}>
                     Send Ether
                 </div>
-                <div className="flex justify-center items-center">
-                    <input
-                        type="text"
-                        id="recipientAddress"
-                        placeholder="Recipient Address"
-                        className="mx-2 border-2 border-gray-400 rounded p-2"
-                    />
-                    <input
-                        type="text"
-                        id="ethAmount"
-                        placeholder="Amount (ETH)"
-                        className="mx-2 border-2 border-gray-400 rounded p-2"
-                    />
-                    <button onClick={sendEther} className="send-button w-40 py-2">Send</button>
-                </div>
-                <div className="transaction-list mt-5" id="transaction-list"></div>
-                <button onClick={getAllTransactions} className="fetch-transactions mb-20">Fetch All Transactions</button>
+                
+                <div id="transaction-list" className="pt-4"></div>
             </div>
-        </>
+        </div>
     );
 };
 
