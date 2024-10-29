@@ -263,7 +263,7 @@ const connectWallet = async () => {
             </div>
 
             <div ref={sendRef}>
-                <div className="flex justify-center items-center text-5xl pt-20 mb-40" onClick={() => window.location.href = "http://localhost:5174/shop"}>
+                <div className="flex justify-center items-center text-5xl pt-20 mb-40">
                     Send Ether
                 </div>
                 
