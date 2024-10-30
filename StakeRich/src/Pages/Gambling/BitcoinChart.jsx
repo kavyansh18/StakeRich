@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 
-// Register Chart.js modules and scales
 Chart.register(...registerables);
 
 const BitcoinChart = ({ livePriceData, currentPrice }) => {
@@ -12,10 +11,10 @@ const BitcoinChart = ({ livePriceData, currentPrice }) => {
             {
                 label: 'Live Bitcoin Price (USD)',
                 data: livePriceData,
-                borderColor: 'rgba(255, 99, 132, 1)', // Changed color of the graph line
-                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Added transparent background
+                borderColor: 'rgba(255, 99, 132, 1)', 
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', 
                 borderWidth: 2,
-                fill: true, // Enable fill to show the background color
+                fill: true, 
             },
         ],
     };
@@ -25,7 +24,7 @@ const BitcoinChart = ({ livePriceData, currentPrice }) => {
         maintainAspectRatio: false,
         scales: {
             x: {
-                type: 'time', // Set the x-axis type to 'time'
+                type: 'time', 
                 time: {
                     unit: 'minute',
                     displayFormats: {

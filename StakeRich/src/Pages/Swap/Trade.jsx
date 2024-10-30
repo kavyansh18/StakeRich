@@ -15,22 +15,19 @@ import BikeLoader from '../../components/Loader/BikeLoader';
 import { TezosToolkit } from '@taquito/taquito';
 import { BeaconWallet } from '@taquito/beacon-wallet';
 
-// Token list
 const tokenList = [
   { name: 'Tezos (XTZ)', address: null },
   { name: 'tzBTC', address: 'KT1PWx2mnDueood7fEmfbBDKx1D9BAnnXitn' },
   { name: 'wXTZ', address: 'KT1VYsVfmobT7rsMVivvZ4J8i3bPiqz12NaH' },
   { name: 'USDtz', address: 'KT1AEfeckNbdEYwaMKkytBwPJPycz7jdSGea' },
-  // Add more tokens as needed
+
 ];
 
-// DEX contract mapping
 const dexContracts = {
   'XTZ-tzBTC': 'KT1XVy2fiVVu8jz7ojA4jhxVtMqGX6e6VLzV',
   'tzBTC-XTZ': 'KT1XVy2fiVVu8jz7ojA4jhxVtMqGX6e6VLzV',
-  'XTZ-USDtz': 'KT1Q8LdP5sZ9xS2hkHjGJMmKxjeF5gTdQ5uT', // Update with correct address
-  'USDtz-XTZ': 'KT1Q8LdP5sZ9xS2hkHjGJMmKxjeF5gTdQ5uT', // Update with correct address
-  // Add more mappings as needed
+  'XTZ-USDtz': 'KT1Q8LdP5sZ9xS2hkHjGJMmKxjeF5gTdQ5uT', 
+  'USDtz-XTZ': 'KT1Q8LdP5sZ9xS2hkHjGJMmKxjeF5gTdQ5uT',
 };
 
 const Background = () => {
@@ -83,7 +80,6 @@ const Trade = () => {
     showLoaderForMinTime();
   }, []);
 
-  // Initialize Tezos Toolkit and Wallet
   useEffect(() => {
     const setupTezos = async () => {
       const tezosTK = new TezosToolkit('https://mainnet.api.tez.ie');
@@ -96,7 +92,6 @@ const Trade = () => {
     setupTezos();
   }, []);
 
-  // Update DEX contract address when tokens change
   useEffect(() => {
     const fromTokenName = fromToken.name === 'Tezos (XTZ)' ? 'XTZ' : fromToken.name;
     const toTokenName = toToken.name === 'Tezos (XTZ)' ? 'XTZ' : toToken.name;
@@ -142,19 +137,17 @@ const Trade = () => {
         const contract = await tezos.wallet.at(dexContractAddress);
 
         if (fromToken.name === 'Tezos (XTZ)') {
-          // Swapping XTZ to Token
           const operation = await contract.methods
             .tezToTokenPayment(
-              userAddress, // Recipient
-              0            // Minimum tokens to receive
+              userAddress, 
+              0            
             )
             .send({ amount: amountToSwap });
 
           await operation.confirmation();
           alert('Swap completed successfully!');
         } else if (toToken.name === 'Tezos (XTZ)') {
-          // Swapping Token to XTZ
-          // Approve the DEX contract to spend tokens
+
           const tokenContract = await tezos.wallet.at(fromToken.address);
           const approvalOp = await tokenContract.methods
             .approve(dexContractAddress, amountToSwap)
@@ -164,17 +157,15 @@ const Trade = () => {
 
           const operation = await contract.methods
             .tokenToTezPayment(
-              amountToSwap, // Amount of tokens to swap
-              0,            // Minimum amount of XTZ to receive
-              userAddress   // Recipient
+              amountToSwap, 
+              0,            
+              userAddress   
             )
             .send();
 
           await operation.confirmation();
           alert('Swap completed successfully!');
         } else {
-          // Swapping Token to Token
-          // Approve the DEX contract to spend tokens
           const tokenContract = await tezos.wallet.at(fromToken.address);
           const approvalOp = await tokenContract.methods
             .approve(dexContractAddress, amountToSwap)
@@ -184,10 +175,10 @@ const Trade = () => {
 
           const operation = await contract.methods
             .tokenToTokenPayment(
-              amountToSwap,      // Amount of tokens to swap
-              0,                 // Minimum amount of tokens to receive
-              userAddress,       // Recipient
-              toToken.address    // To token DEX contract address
+              amountToSwap,     
+              0,                
+              userAddress,      
+              toToken.address  
             )
             .send();
 
@@ -234,8 +225,8 @@ const Trade = () => {
                 camera={{ position: [0, 5, 10], fov: 45 }}
                 className="canvas-element"
                 onCreated={({ gl }) => {
-                  setLoading(false); // Hide loader when Canvas is created
-                  gl.setSize(window.innerWidth, window.innerHeight); // Resize canvas
+                  setLoading(false); 
+                  gl.setSize(window.innerWidth, window.innerHeight); 
                 }}
               >
                 <ambientLight intensity={1} />

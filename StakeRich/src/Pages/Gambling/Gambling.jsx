@@ -55,7 +55,7 @@ const BitcoinTracker = () => {
     };
 
     const confirmAction = () => {
-        setTransactionInProgress(true); // Show transaction in progress in the popup
+        setTransactionInProgress(true); 
 
         setTimeout(() => {
             if (actionType === 'Buy') {
@@ -68,7 +68,7 @@ const BitcoinTracker = () => {
                 };
                 setTransactions([...transactions, transaction]);
                 setBitcoinBalance((prev) => prev + quantity);
-                setPopupMessage('Transaction complete!'); // Update message after transaction
+                setPopupMessage('Transaction complete!');
             } else if (actionType === 'Sell') {
                 const lastTransaction = transactions[transactions.length - 1];
                 const profitLoss = (currentPrice - lastTransaction.price) * quantity;
@@ -81,11 +81,11 @@ const BitcoinTracker = () => {
                 };
                 setTransactions([...transactions, transaction]);
                 setBitcoinBalance((prev) => prev - quantity);
-                setPopupMessage('Transaction complete!'); // Update message after transaction
+                setPopupMessage('Transaction complete!'); 
             }
-            setTransactionInProgress(false); // Hide transaction in progress
-            setShowPopup(false); // Close the popup
-        }, 2500); // 2.5 seconds delay
+            setTransactionInProgress(false); 
+            setShowPopup(false); 
+        }, 2500); 
     };
 
     const cancelAction = () => {

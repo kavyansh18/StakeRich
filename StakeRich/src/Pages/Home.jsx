@@ -1,10 +1,10 @@
 import React,{useEffect} from 'react';
 import { Canvas } from '@react-three/fiber';
 import Navbar from '../components/Navbar/Navbar';
-import './Home.css'; // Assuming the CSS file is in the same directory
+import './Home.css'; 
 import Hometruck from '../models/Hometruck';
-import Dragon from '../models/Dragon'; // Import the Dragon model
-import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
+import Dragon from '../models/Dragon'; 
+import { OrbitControls } from '@react-three/drei'; 
 import Bitcoin from '../models/Bitcoin.jsx';
 import  { Suspense, useState } from 'react';
 import Main from '../models/main.jsx';

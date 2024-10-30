@@ -1,20 +1,20 @@
 .image-container {
     z-index: 1000;
-    width: 80%; /* Set a fixed width for the container */
+    width: 80%; 
     height: 100%; 
-    right:-17px;/* Set a fixed height for the container */
+    right:-17px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensure content doesn't overflow the container */
+    overflow: hidden; 
 }
 
 .hover-image {
-    width: 80%; /* Adjust width as needed */
-    height: 80%; /* Adjust height as needed */
+    width: 80%; 
+    height: 80%; 
     object-fit: cover;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition for opacity and scale */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
     opacity: 1;
     transform: scale(1); 
 }

@@ -8,7 +8,7 @@ import { MeshStandardMaterial } from 'three';
 import './Blog.css';
 import connectContent from './howto.jsx';
 import Tradeinfo from './trade-info.jsx'; 
-import Buy from './buy.jsx'; // Make sure this path is correct
+import Buy from './buy.jsx';
 import Lelia from '../../models/Lelia.jsx';
 
 const Blog = () => {
@@ -29,7 +29,7 @@ const Blog = () => {
     "animation.lael.idlemain",
     "animation.lael.idle",
     "animation.lael.idle_jump_main"
-  ]; // Replace with your animation names
+  ]; 
 
   const texts = [
     { text: "Connect Wallet?", animation: 1 },
@@ -43,7 +43,7 @@ const Blog = () => {
   };
 
   const handleMouseLeave = () => {
-    setAnimationIndex(0); // Default animation index
+    setAnimationIndex(0); 
   };
 
   const handleClick = (index) => {
@@ -142,7 +142,7 @@ const Blog = () => {
         <div className="pixelated-title">
           How to Connect Wallet?
         </div>
-        {connectContent}  {/* Render the imported content here */}
+        {connectContent}  
         <Canvas className='model1' shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
@@ -268,8 +268,6 @@ const Blog = () => {
           </Suspense>
         </Canvas>
       </div>
-
-      {/* Add more sections as needed */}
     </>
   );
 };

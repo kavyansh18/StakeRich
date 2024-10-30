@@ -8,15 +8,15 @@ const CustomCursor = () => {
   useEffect(() => {
     const mouseMove = (e) => {
       setMouse({ x: e.clientX, y: e.clientY });
-      setVisible(true); // Ensure visibility when mouse is moving
+      setVisible(true); 
     };
 
     const mouseLeave = () => {
-      setVisible(false); // Hide cursor when mouse leaves the window
+      setVisible(false); 
     };
 
     const mouseEnter = () => {
-      setVisible(true); // Show cursor when mouse enters the window
+      setVisible(true); 
     };
 
     document.addEventListener('mousemove', mouseMove);
@@ -34,7 +34,7 @@ const CustomCursor = () => {
     default: {
       x: mouse.x - 10,
       y: mouse.y - 5,
-      opacity: visible ? 1 : 0, // Change opacity based on visibility state
+      opacity: visible ? 1 : 0, 
       transition: {
         type: "smooth",
         duration: 0,

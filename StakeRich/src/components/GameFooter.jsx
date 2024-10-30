@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 
 const GameFooter = () => {
   useEffect(() => {
-    // Helper function to load a script and return a promise
     const loadScript = (src) => {
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
@@ -20,7 +19,6 @@ const GameFooter = () => {
       });
     };
 
-    // List of script sources
     const scriptSrcs = [
       "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js",
       "./game/js/utils.js",
@@ -32,7 +30,6 @@ const GameFooter = () => {
       "./game/index.js"
     ];
 
-    // Load scripts in sequence to ensure correct order
     const loadScriptsSequentially = async () => {
       try {
         for (const src of scriptSrcs) {
@@ -46,7 +43,6 @@ const GameFooter = () => {
 
     loadScriptsSequentially();
 
-    // Cleanup scripts when component unmounts
     return () => {
       scriptSrcs.forEach(src => {
         const script = document.querySelector(`script[src="${src}"]`);

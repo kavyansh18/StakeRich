@@ -8,14 +8,11 @@ import type { CreateConnectorFn } from '@wagmi/core';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { authConnector } from "@web3modal/wagmi";
 
-// 0. Setup queryClient
 const queryClient = new QueryClient();
 
-// 1. Get projectId at https://cloud.walletconnect.com
 const projectId = "9c702d939dc8dcc1aa1c78f525f113d6";
 if (!projectId) throw new Error("Project ID is undefined");
 
-// 2. Create wagmiConfig
 const metadata = {
   name: "Web3Modal",
   description: "Web3Modal Example",
@@ -23,10 +20,7 @@ const metadata = {
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-// Define chains
 const chains = [mainnet, arbitrum] as const;
-
-// Create the connectors
 const connectors: CreateConnectorFn[] = [];
 connectors.push(walletConnect({ projectId, metadata, showQrModal: false }));
 connectors.push(injected({ shimDisconnect: true }));
@@ -52,11 +46,10 @@ const wagmiConfig = createConfig({
   connectors: connectors,
 });
 
-// 3. Create modal with theme customization
 createWeb3Modal({
   themeVariables: {
     '--w3m-font-family': "'Press Start 2P', cursive",
-    '--w3m-accent': '#331f80',  // Change this to your desired color
+    '--w3m-accent': '#331f80',  
     '--w3m-color-mix': '#331f80',
     '--w3m-color-mix-strength': 40,
     '--w3m-font-size-master': '8px',
@@ -67,7 +60,6 @@ createWeb3Modal({
   projectId 
 });
 
-// AppKitProvider component
 export function AppKitProvider({ children }) {
   return (
     <WagmiProvider config={wagmiConfig}>

@@ -136,8 +136,8 @@ const Navbar = () => {
         setFadeOut(true);
         setTimeout(() => {
           navigate('/home');
-        }, 50); // Duration of the fade-out transition
-      }, 2000); // Duration of the spread animation
+        }, 50); 
+      }, 2000); 
     }
   };
 
@@ -164,7 +164,6 @@ const Navbar = () => {
         </div>
         <WalletConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
         <div className={styles.toggleEyesContainer}>
-          {/* Eyes */}
           <div className={styles.eye}>
             <div className={styles.pupil}></div>
           </div>

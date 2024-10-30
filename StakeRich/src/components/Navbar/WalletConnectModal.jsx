@@ -26,7 +26,6 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
         console.log('Wallet logo clicked!');
     };
 
-    // Handle ConnectButton click
     const handleConnectClick = () => {
         console.log('Connect button clicked!');
         onClose(); // Close the modal
@@ -44,37 +43,31 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
                         <button className={styles.logoButton1} onClick={handleLogoClick}>
                             <img src="/MetaMask_Fox.svg" alt="Meta Mask Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                                {/* Add the WalletConnect button here */}
                             </div>
                         </button>
                         <button className={styles.logoButton} onClick={handleLogoClick}>
                             <img src="/wallet-logo.svg" alt="Wallet Connect Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                                {/* Add the WalletConnect button here */}
                             </div>
                         </button>
                         <button className={styles.logoButton2} onClick={handleLogoClick}>
                             <img src="/bnb-bnb-logo.svg" alt="Binance Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                                {/* Add the WalletConnect button here */}
                             </div>
                         </button>
                         <button className={styles.logoButton3} onClick={handleLogoClick}>
                             <img src="/coinbase-wallet-logo.svg" alt="Coinbase Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                                {/* Add the WalletConnect button here */}
                             </div>
                         </button>
                         <button className={styles.logoButton4} onClick={handleLogoClick}>
                             <img src="/trust-wallet-logo.svg" alt="Trust Wallet Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                                {/* Add the WalletConnect button here */}
                             </div>
                         </button>
                         <button className={styles.logoButton5} onClick={handleLogoClick}>
                             <img src="/okx.svg" alt="OKX Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                                {/* Add the WalletConnect button here */}
                             </div>
                         </button>
                     </div>

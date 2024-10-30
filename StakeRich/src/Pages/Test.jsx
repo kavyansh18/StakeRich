@@ -57,7 +57,7 @@ const Test = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [walletAddress, setWalletAddress] = useState("");
     const [signer, setSigner] = useState(null); 
-    const [contract, setContract] = useState(null); // State to hold contract instance
+    const [contract, setContract] = useState(null); 
     const navigate = useNavigate();
     const stakeRef = useRef(null);
     const sendRef = useRef(null);
@@ -90,11 +90,11 @@ const connectWallet = async () => {
         const contract = new ethers.Contract(contractAddress, MyContractABI, signer);
         setContract(contract);
     } catch (error) {
-        if (error.code === 4001) { // User rejected the request
-            toast.warn("You denied account access."); // Show warning toast
+        if (error.code === 4001) { 
+            toast.warn("You denied account access."); 
         } else {
             console.error("Error connecting to wallet:", error);
-            toast.error("Error connecting to wallet."); // Show error toast for other issues
+            toast.error("Error connecting to wallet."); 
         }
     }
 };
@@ -142,7 +142,7 @@ const connectWallet = async () => {
             };
 
             const txResponse = await signer.sendTransaction(transaction);
-            await txResponse.wait(); // Wait for the transaction to be mined
+            await txResponse.wait(); 
             console.log("Transaction Response:", txResponse);
             alert("Transaction successful!");
         } catch (error) {

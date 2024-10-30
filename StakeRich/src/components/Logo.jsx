@@ -2,9 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
-import logoImage from '../assets/logo.png'; // Make sure to replace with the correct path
+import logoImage from '../assets/logo.png'; 
 
-// Keyframes for the color spread effect
 const colorSpread = keyframes`
   0% {
     clip-path: circle(0% at 90% 90%);
@@ -14,7 +13,6 @@ const colorSpread = keyframes`
   }
 `;
 
-// Keyframes for the fade-out effect
 const fadeOut = keyframes`
   0% {
     opacity: 1;
@@ -24,7 +22,6 @@ const fadeOut = keyframes`
   }
 `;
 
-// Overlay that covers the screen and spreads
 const ColorOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -39,7 +36,6 @@ const ColorOverlay = styled.div`
   transition: opacity 0.5s;
 `;
 
-// Container for the logo
 const LogoContainer = styled.div`
   position: fixed;
   bottom: 10px;
@@ -47,7 +43,6 @@ const LogoContainer = styled.div`
   z-index: 1000; /* Ensure it is on top of other elements */
 `;
 
-// Styled image element
 const LogoImage = styled.img`
   width: 60px; /* Adjust the size as needed */
   height: 60px; /* Keep it square for a round shape */
@@ -66,7 +61,6 @@ const LogoImage = styled.img`
   margin-right:20px
 `;
 
-// Floating keyframes for a subtle depth effect
 const float = keyframes`
   0%, 100% {
     transform: perspective(600px) rotateX(10deg) rotateY(10deg) scale(1);
@@ -80,22 +74,20 @@ const Logo = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
-  const navigate = useNavigate(); // Correct hook for navigation
+  const navigate = useNavigate(); 
 
   const handleClick = () => {
     setIsClicked(true);
     setFadeOut(false);
-
-    // Simulate content loading (e.g., API calls, resource loading)
     setTimeout(() => {
       setLoading(false);
       setTimeout(() => {
         setFadeOut(true);
         setTimeout(() => {
-          navigate('/blog'); // Use navigate to change route
-        }, 50); // Duration of the fade-out transition
-      }, 50); // Duration before starting the fazde-out animation
-    }, 2000); // Duration of the spread animation
+          navigate('/blog'); 
+        }, 50); 
+      }, 50); 
+    }, 2000); 
   };
 
 
@@ -104,7 +96,7 @@ const Logo = () => {
       setTimeout(() => {
         setIsClicked(false);
         setLoading(true);
-      }, 500); // Match the duration of the fade-out transition
+      }, 500); 
     }
   }, [fadeOut]);
 

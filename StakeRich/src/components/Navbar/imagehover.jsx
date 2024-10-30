@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './imagehover.css'; // Import the CSS file
+import './imagehover.css'; 
 
 const ImageHover = () => {
     const [isHovered, setIsHovered] = useState(false);
